@@ -63,11 +63,11 @@ const count = ref(0);
                     </svg> </span
                   >新增旅遊套票
                 </h1>
-                <hr class="border-2 border-primary mb-8" />
+                <hr class="border-2 border-primary mb-8 max-w-sm" />
                 <!-- form -->
-                <form action="" method="POST">
-                  <div class="flex items-center mb-4">
-                    <label for="name" class="mr-8 font-bold text-base">套票名稱</label>
+                <form action="" method="POST" class="max-w-full md:max-w-sm">
+                  <div class="flex items-center flex-col md:flex-row mb-4">
+                    <label for="name" class="m-0 mb-2 md:mb-0 md:mr-8 font-bold text-base">套票名稱</label>
                     <input id="name" name="name" type="text" class="w-9/12
                     border-0 border-b-2 border-primary bg-zinc-50 font-bold text-base
                     focus:bg-zinc-50
@@ -75,14 +75,14 @@ const count = ref(0);
                     focus:border-purple-600  "
                     placeholder="請填寫套票名稱">
                   </div>
-                  <div class="flex items-center mb-4">
-                    <label for="name" class="mr-8 font-bold text-base">套票名稱</label>
-                    <input id="name" name="name" type="text" class="w-9/12
+                  <div class="flex items-center flex-col md:flex-row mb-4">
+                    <label for="imgUrl" class="m-0 mb-2 md:mb-0 md:mr-8 font-bold text-base">圖片網址</label>
+                    <input id="imgUrl" name="imgUrl" type="url" class="w-9/12
                     border-0 border-b-2 border-primary bg-zinc-50 font-bold text-base
                     focus:bg-zinc-50
                     focus:ring-0
                     focus:border-purple-600  "
-                    placeholder="請填寫套票名稱">
+                    placeholder="請填寫圖片網址">
                   </div>
                 </form>
                 <!-- form end -->
