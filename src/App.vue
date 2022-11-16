@@ -1,7 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import searchCard from './components/searchCard.vue';
 </script>
 
 <template>
@@ -9,8 +9,7 @@ import HelloWorld from './components/HelloWorld.vue'
   <p class="text-indigo-600 group-hover:text-gray-900 ...">New Project</p>
   <p class="text-indigo-500 group-hover:text-gray-500 ...">Create a new project from a variety of starting templates.</p>
 </div>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <searchCard msg="Hello Vue 3 + Vite" />
 </template>
 
 <style>
