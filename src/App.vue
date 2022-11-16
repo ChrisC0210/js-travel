@@ -1,7 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import searchCard from './components/searchCard.vue';
+
 </script>
 
 <template>
@@ -9,7 +9,8 @@ import searchCard from './components/searchCard.vue';
   <p class="text-indigo-600 group-hover:text-gray-900 ...">New Project</p>
   <p class="text-indigo-500 group-hover:text-gray-500 ...">Create a new project from a variety of starting templates.</p>
 </div> -->
-  <searchCard msg="Hello Vue 3 + Vite" />
+  <searchCard/>
+  <resultCard/>
 </template>
 
 <style lang="scss">
@@ -26,3 +27,11 @@ $primary-color: #00807e;
   margin-top: 60px;
 }
 </style>
+<script>
+import searchCard from './components/searchCard.vue';
+import resultCard from './components/searchCard.vue';
+
+export default {
+  components: { searchCard, resultCard },
+};
+</script>
