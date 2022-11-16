@@ -9,13 +9,18 @@ module.exports = {
     } ,
     borderColor: theme => ({
       'primary': '#00807e',
-            })
+    }),
+    backgroundColor: theme => ({
+      'primary': '#00807e',
+      'primary-600': '#007572',
+    })
   },
   variants: {
     extend: {
       divideColor: ['group-hover'],
       colors: {
-        primary: '#00807e',
+        'primary': '#00807e',
+        'primary-600': '#007572'
       }
     },
   },
