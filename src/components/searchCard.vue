@@ -22,12 +22,13 @@ const count = ref(0);
           >
             <!-- img -->
             <div>
-              <h1>              
+              <h1>
                 <img
-                class="w-full lg:w-screen"
-                src="../assets/main_img.png"
-                alt="main"
-              /></h1>
+                  class="w-full lg:w-screen"
+                  src="../assets/main_img.png"
+                  alt="main"
+                />
+              </h1>
               <img
                 class="w-full lg:w-screen"
                 src="../assets/logo.png"
@@ -77,6 +78,7 @@ const count = ref(0);
                       type="text"
                       name="name"
                       class="
+                        form-input
                         block
                         w-full
                         lg:w-9/12
@@ -101,6 +103,7 @@ const count = ref(0);
                       type="url"
                       name="imgUrl"
                       class="
+                        form-input
                         block
                         w-full
                         lg:w-9/12
@@ -121,13 +124,15 @@ const count = ref(0);
                     >
                     <select
                       class="
+                        form-select
                         block
                         w-full
                         lg:w-9/12
                         mt-0
                         pr-1
                         border-0 border-b-2 border-primary
-                        bg-zinc-50 text-slate-500
+                        bg-zinc-50
+                        text-slate-500
                         font-bold
                         text-base
                         focus:ring-0 focus:border-black focus:bg-zinc-50
@@ -149,6 +154,7 @@ const count = ref(0);
                       type="number"
                       name="price"
                       class="
+                        form-input
                         block
                         w-full
                         lg:w-9/12
@@ -173,6 +179,7 @@ const count = ref(0);
                       type="number"
                       name="ticketNum"
                       class="
+                        form-input
                         block
                         w-full
                         lg:w-9/12
@@ -197,6 +204,7 @@ const count = ref(0);
                       type="text"
                       name="ticketRatio"
                       class="
+                        form-input
                         block
                         w-full
                         lg:w-9/12
@@ -212,10 +220,23 @@ const count = ref(0);
                     />
                   </label>
                   <label class="block lg:flex lg:items-start mb-4">
-                <span id="ticketInfo" class="m-0 mb-2 md:mb-0 md:mr-8 lg:mt-2 font-bold text-base">套票描述</span>
-                <textarea 
-                name="ticketInfo"
+                    <span
+                      id="ticketInfo"
                       class="
+                        m-0
+                        mb-2
+                        md:mb-0 md:mr-8
+                        lg:mt-2
+                        font-bold
+                        text-base
+                      "
+                      >套票描述</span
+                    >
+                    <textarea
+                      type="textarea"
+                      name="ticketInfo"
+                      class="
+                        form-textarea
                         block
                         w-full
                         lg:w-9/12
@@ -228,13 +249,26 @@ const count = ref(0);
                         focus:ring-0 focus:border-black focus:bg-zinc-50
                       "
                       placeholder="請填寫套票描述（限 100 字）"
-                rows="4"></textarea>
-              </label>
-              <div class="flex justify-end">
-                <button class="py-2.5 px-10 rounded text-white border-primary bg-primary
-                hover:bg-primary-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-primary-600
-                ">新增套票</button> 
-              </div>
+                      rows="4"
+                    ></textarea>
+                  </label>
+                  <div class="flex justify-end">
+                    <button
+                      class="
+                        py-2.5
+                        px-10
+                        rounded
+                        text-white
+                        border-primary
+                        bg-primary
+                        hover:bg-primary-600
+                        active:bg-violet-700
+                        focus:outline-none focus:ring focus:ring-primary-600
+                      "
+                    >
+                      新增套票
+                    </button>
+                  </div>
                 </form>
                 <!-- form end -->
               </div>
@@ -246,49 +280,91 @@ const count = ref(0);
   </section>
   <section class="bg-cus-gray flex justify-center">
     <div class="container mt-14 mb-32">
-      <div class="col-10 lg:col-10" >
-      <div class="flex justify-center lg:justify-start items-baseline flex-col lg:flex-row">
-        <label class="w-full lg:w-64 col-4 mb-4">
-                    <select
-                      class="
-                        w-full
-                        lg:w-9/12
-                        mt-0
-                        pr-1
-                        rounded
-                        bg-zinc-50 text-slate-500
-                        font-bold
-                        text-base
-                        focus:ring-0 focus:border-black focus:bg-zinc-50
-                      "
-                    >
-                    <option selected hidden>地區搜尋</option>
-                      <option value="">全部地區</option>
-                      <option value="0">台北</option>
-                      <option value="1">台中</option>
-                      <option value="2">高雄</option>
-                    </select>
-        </label>
-        <h3 class="text-slate-500 font-bold text-base text-center">本次搜尋共 6 筆資料</h3>
+      <div class="col-10 lg:col-10">
+        <div
+          class="
+            flex
+            justify-center
+            lg:justify-start
+            items-baseline
+            flex-col
+            lg:flex-row
+          "
+        >
+          <label class="w-full lg:w-64 col-4 mb-4">
+            <select
+              class="
+                w-full
+                lg:w-9/12
+                mt-0
+                pr-1
+                rounded
+                bg-zinc-50
+                text-slate-500
+                font-bold
+                text-base
+                focus:ring-0 focus:border-black focus:bg-zinc-50
+              "
+            >
+              <option selected hidden>地區搜尋</option>
+              <option value="">全部地區</option>
+              <option value="0">台北</option>
+              <option value="1">台中</option>
+              <option value="2">高雄</option>
+            </select>
+          </label>
+          <h3 class="text-slate-500 font-bold text-base text-center">
+            本次搜尋共 6 筆資料
+          </h3>
+        </div>
       </div>
+      <!-- cards -->
+      <div class="container mx-auto">
+        <ul class="flex flex-wrap">
+          <li v-for="item in cardInfo" :key="item" class="relative w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
+              <!-- card -->
+              <div class="absolute top-0 left-0 py-2 px-5 ml-6 z-10 rounded bg-primary-400 text-white">
+                      <p>{{item.area}}</p>
+                    </div>
+              <div class="flex justify-start flex-1 flex-col text-left mb-10 mx-3 bg-white rounded-lg shadow-lg overflow-hidden ">
+                <div class="flex-1 flex flex-col">
+                  <a href="#!"
+                    data-mdb-ripple="true"
+                    data-mdb-ripple-color="light"
+                  >
+                  <div class="relative">
+                    <img class="rounded-t-lg" :src="item.imgUrl" alt="" />
+                    <div class="absolute -bottom-4 left-0 py-1 px-2  z-10 rounded bg-primary text-white">
+                      <p>{{item.rate}}</p>
+                    </div>
+                  </div>
+                  </a>
+                  <div class="p-6 flex-1">
+                    <h5 class="text-xl font-medium mb-2">
+                      {{ item.name }}
+                    </h5>
+                    <p class="text-base mb-4 line-clamp-3">
+                      {{ item.description }}
+                    </p>
+                  </div>
+                  <div class="tracking-wide flex justify-between py-3 px-6 text-gray-600">
+                      <div>剩下最後 {{ item.group }} 組</div>
+                      <div>
+                        TWD <span>${{ item.price }}</span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <!-- card -->
+          </li>
+        </ul>
+      </div>
+      <!-- cards end -->
     </div>
-    <!-- card -->
-    <div>
-      <ul>
-        <li v-for="item in cardInfo" :key="item">
-          <p>{{item.name}}</p>
-          <a href="#"></a>
-        </li>
-      </ul>
-    </div>
-    <!-- card end -->
-    </div>
-
   </section>
 </template>
 
 <style scoped>
-
 </style>
 <script>
 import { BeakerIcon } from "@heroicons/vue/24/solid";
@@ -298,38 +374,74 @@ export default {
   data() {
     return {
       cardInfo: [
-    {
-      "id": 0,
-      "name": "肥宅心碎賞櫻3日",
-      "imgUrl": "https://images.unsplash.com/photo-1522383225653-ed111181a951?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1655&q=80",
-      "area": "高雄",
-      "description": "賞櫻花最佳去處。肥宅不得不去的超讚景點！",
-      "group": 87,
-      "price": 1400,
-      "rate": 10
-    },
-    {
-      "id": 1,
-      "name": "貓空纜車雙程票",
-      "imgUrl": "https://images.unsplash.com/photo-1501393152198-34b240415948?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
-      "area": "台北",
-      "description": "乘坐以透明強化玻璃為地板的「貓纜之眼」水晶車廂，享受騰雲駕霧遨遊天際之感",
-      "group": 99,
-      "price": 240,
-      "rate": 2
-    },
-    {
-      "id": 2,
-      "name": "台中谷關溫泉會1日",
-      "imgUrl": "https://images.unsplash.com/photo-1535530992830-e25d07cfa780?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
-      "area": "台中",
-      "description": "全館客房均提供谷關無色無味之優質碳酸原湯，並取用八仙山之山冷泉供蒞臨貴賓沐浴及飲水使用。",
-      "group": 20,
-      "price": 1765,
-      "rate": 7
-    }
-  ]
-    }
-  }
+      {
+    "id": 1,
+    "name": "綠島自由行套裝行程",
+    "imgUrl": "./src/assets/img/travel_1.png",
+    "area": "台北",
+    "description": "嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。",
+    "rate": 8.6,
+    "group": 8,
+    "price": 1280,
+    "isTimeLimit": false
+  },
+  {
+    "id": 2,
+    "name": "清境高空觀景步道二日遊",
+    "imgUrl": "./src/assets/img/travel_2.png",
+    "area": "台北",
+    "description": "清境農場青青草原數十公頃碧草，餵食著數以百計的綿羊和牛群，中央山脈最高的北三段群峰形成一堵如帶的高牆，攔住清晨的薄霧山嵐，成就了從花蓮翻山而來的雲瀑在濁水溪谷積成雲海，這些景觀豐沛了清境觀景步道的風格，也涵養它無可取代的特色。",
+    "rate": 8.2,
+    "group": 12,
+    "price": 2580,
+    "isTimeLimit": false
+  },
+  {
+    "id": 3,
+    "name": "南庄度假村露營車二日遊",
+    "imgUrl": "./src/assets/img/travel_3.png",
+    "area": "台中",
+    "description": "南庄雲水豪華露營車，快來擁有最愜意的露營體驗吧！<br>一泊一食，輕鬆享受露營車樂趣。<br>獨立衛浴與私人戶外露臺。<br>入住豪華露營車還能使用戶外SPA大眾湯，感受美人湯魅力。",
+    "rate": 9.2,
+    "group": 2,
+    "price": 2480,
+    "isTimeLimit": false
+  },
+  {
+    "id": 4,
+    "name": "山林悠遊雙人套票",
+    "imgUrl": "./src/assets/img/travel_4.png",
+    "area": "台中",
+    "description": "山林悠遊套票，結合南投清境高空步道、雙龍瀑布七彩吊橋、瑞龍瀑布園區之熱門景點，帶您飽覽南投瑰麗的自然環境，體驗變化無窮的地形景觀，喜歡挑戰高空的您一定不可錯過。<br>（含雙龍瀑布入場券 x2）",
+    "rate": 9.3,
+    "group": 7,
+    "price": 880,
+    "isTimeLimit": true
+  },
+  {
+    "id": 5,
+    "name": "漁樂碼頭釣魚體驗套票",
+    "imgUrl": "./src/assets/img/travel_5.png",
+    "area": "台中",
+    "description": "台中全新親子景點寶熊漁樂碼頭，為知名釣具公司「OKUMA」所創立的觀光工廠。一樓藍白希臘漁村風商店街免費參觀。二樓釣魚故事館則設立全台唯一虛擬釣場，透過導覽讓你知道如何釣魚、魚餌怎麼區分，寓教於樂的台中景點！",
+    "rate": 8.2,
+    "group": 5,
+    "price": 1280,
+    "isTimeLimit": false
+  },
+  {
+    "id": 6,
+    "name": "熊森公園親子二日遊套票",
+    "imgUrl": "./src/assets/img/travel_6.png",
+    "area": "高雄",
+    "description": "來自日本最受歡迎的兒童遊樂園《 BearSon Park 熊森公園》於全世界有800多家據點，在全世界、日本及台灣，很多小孩的童年都在遊戲愛樂園裡一同成長，提供兒童一個最富教育性及娛樂性的休憩遊樂天地！",
+    "rate": 8.6,
+    "group": 3,
+    "price": 2480,
+    "isTimeLimit": false
+  },
+      ],
+    };
+  },
 };
 </script>
