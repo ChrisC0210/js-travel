@@ -10,7 +10,7 @@
   <p class="text-indigo-500 group-hover:text-gray-500 ...">Create a new project from a variety of starting templates.</p>
 </div> -->
   <searchCard/>
-  <resultCard/>
+  <!-- <resultCard/> -->
 </template>
 
 <style lang="scss">
