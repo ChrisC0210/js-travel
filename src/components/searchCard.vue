@@ -133,7 +133,7 @@ const count = ref(0);
                         focus:ring-0 focus:border-black focus:bg-zinc-50
                       "
                     >
-                      <option selected>請選擇景點地區</option>
+                      <option selected hidden>請選擇景點地區</option>
                       <option value="0">台北</option>
                       <option value="1">台中</option>
                       <option value="2">高雄</option>
@@ -262,7 +262,8 @@ const count = ref(0);
                         focus:ring-0 focus:border-black focus:bg-zinc-50
                       "
                     >
-                      <option value="all">全部地區</option>
+                    <option selected hidden>地區搜尋</option>
+                      <option value="">全部地區</option>
                       <option value="0">台北</option>
                       <option value="1">台中</option>
                       <option value="2">高雄</option>
