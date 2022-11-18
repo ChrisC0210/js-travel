@@ -201,7 +201,7 @@ const count = ref(0);
                       >套票星級</span
                     >
                     <input
-                      type="text"
+                      type="number"
                       name="ticketRatio"
                       class="
                         form-input
@@ -314,7 +314,7 @@ const count = ref(0);
             </select>
           </label>
           <h3 class="text-slate-500 font-bold text-base text-center">
-            本次搜尋共 6 筆資料
+            本次搜尋共 {{cardInfo.length}} 筆資料
           </h3>
         </div>
       </div>
@@ -323,34 +323,41 @@ const count = ref(0);
         <ul class="flex flex-wrap">
           <li v-for="item in cardInfo" :key="item" class="relative w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
               <!-- card -->
-              <div class="absolute top-0 left-0 py-2 px-5 ml-6 z-10 rounded bg-primary-400 text-white">
+              <div class="absolute top-0 left-0 py-2 px-5 ml-6 z-10 rounded bg-primary-400 text-white text-xl">
                       <p>{{item.area}}</p>
                     </div>
               <div class="flex justify-start flex-1 flex-col text-left mb-10 mx-3 bg-white rounded-lg shadow-lg overflow-hidden ">
                 <div class="flex-1 flex flex-col">
-                  <a href="#!"
-                    data-mdb-ripple="true"
-                    data-mdb-ripple-color="light"
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
                   >
                   <div class="relative">
-                    <img class="rounded-t-lg" :src="item.imgUrl" alt="" />
-                    <div class="absolute -bottom-4 left-0 py-1 px-2  z-10 rounded bg-primary text-white">
+                    <div class="overflow-hidden">
+                      <img class="rounded-t-lg hover:scale-125 transition-all duration-500" :src="item.imgUrl" alt="" />
+                    </div>
+                    <div class="absolute -bottom-4 left-0 py-1 px-2 z-10 rounded bg-primary text-white text-base">
                       <p>{{item.rate}}</p>
                     </div>
                   </div>
                   </a>
                   <div class="p-6 flex-1">
-                    <h5 class="text-xl font-medium mb-2">
+                    <h5 class="text-2xl font-medium mb-2">
                       {{ item.name }}
                     </h5>
                     <p class="text-base mb-4 line-clamp-3">
                       {{ item.description }}
                     </p>
                   </div>
-                  <div class="tracking-wide flex justify-between py-3 px-6 text-gray-600">
-                      <div>剩下最後 {{ item.group }} 組</div>
-                      <div>
-                        TWD <span>${{ item.price }}</span>
+                  <div class="tracking-wide flex justify-between flex-row md:flex-col lg:flex-row py-3 px-6">
+                      <div class="text-base font-medium flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                          <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-1">
+                          剩下最後 {{ item.group }} 組                          
+                        </span>
+                      </div>
+                      <div class="text-base">
+                        TWD <span  class=" text-3xl">${{ item.price }}</span>
                       </div>
                     </div>
                 </div>
@@ -401,7 +408,7 @@ export default {
     "name": "南庄度假村露營車二日遊",
     "imgUrl": "./src/assets/img/travel_3.png",
     "area": "台中",
-    "description": "南庄雲水豪華露營車，快來擁有最愜意的露營體驗吧！<br>一泊一食，輕鬆享受露營車樂趣。<br>獨立衛浴與私人戶外露臺。<br>入住豪華露營車還能使用戶外SPA大眾湯，感受美人湯魅力。",
+    "description": "南庄雲水豪華露營車，快來擁有最愜意的露營體驗吧！ 一泊一食，輕鬆享受露營車樂趣。 獨立衛浴與私人戶外露臺。 入住豪華露營車還能使用戶外SPA大眾湯，感受美人湯魅力。",
     "rate": 9.2,
     "group": 2,
     "price": 2480,

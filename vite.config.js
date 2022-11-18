@@ -27,20 +27,40 @@ export default defineConfig({
   define: {
     'process.env': {}
   },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
+  //       sanitizeFileName(name) {
+  //         const match = DRIVE_LETTER_REGEX.exec(name);
+  //         const driveLetter = match ? match[0] : '';
+  //         // substr 是被淘汰語法，因此要改 slice
+  //         return (
+  //           driveLetter +
+  //           name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
+  //         );
+  //       },
+  //     },
+  //   },
+  // },
   build: {
     rollupOptions: {
       output: {
-        // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
-        sanitizeFileName(name) {
-          const match = DRIVE_LETTER_REGEX.exec(name);
-          const driveLetter = match ? match[0] : '';
-          // substr 是被淘汰語法，因此要改 slice
-          return (
-            driveLetter +
-            name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
-          );
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: ({name}) => {
+          if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')){
+              return 'assets/img/[name]-[hash][extname]';
+          }
+          
+          if (/\.css$/.test(name ?? '')) {
+              return 'assets/css/[name]-[hash][extname]';   
+          }
+          // default value
+          // ref: https://rollupjs.org/guide/en/#outputassetfilenames
+          return 'assets/[name]-[hash][extname]';
         },
       },
-    },
+    }
   },
 })
