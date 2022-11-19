@@ -1,15 +1,6 @@
-<script setup>
-import { ref } from "vue";
-
-defineProps({
-  msg: String,
-});
-
-const count = ref(0);
-</script>
-
 <template>
-  <section class="container flex justify-center mt-32 mb-24">
+  <h2 class="mt-6 text-3xl font-semibold ">Week 7 | C3.js</h2>
+  <section class="container flex justify-centermb-24">
     <div class="col-12 lg:col-10 bg-white shadow-lg rounded-xl">
       <div class="">
         <div class="mt-20 max-w-lg sm:mx-auto md:max-w-none py-16 px-24">
