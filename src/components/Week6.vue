@@ -304,8 +304,8 @@
               <option value="2">高雄</option>
             </select>
           </label>
-          <h3 v-if="data.length" class="text-slate-500 font-bold text-base text-center">
-            本次搜尋共 {{ data.length }} 筆資料
+          <h3 v-if="dataCard.length" class="text-slate-500 font-bold text-base text-center">
+            本次搜尋共 {{ dataCard.length }} 筆資料
           </h3>
           <h3 v-else class="text-slate-500 font-bold text-base text-center">
             本次搜尋共 0 筆資料
@@ -316,7 +316,7 @@
       <div class="container mx-auto">
         <ul class="flex flex-wrap">
           <li
-            v-for="item in data"
+            v-for="item in dataCard"
             :key="item"
             class="relative w-full sm:w-1/2 md:w-1/3 flex flex-col p-3"
           >
@@ -470,30 +470,27 @@
 import { BeakerIcon } from "@heroicons/vue/24/solid";
 import axios from 'axios';
 //app.prototype.$axios = axios;
-
+const api = "https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json";
 export default {
   components: { BeakerIcon, axios },
   data() {
     return {
-      data: {
-        //loading: false,
-        area:'',
-      }
+      dataCard: []
     }
   },
   methods: {
-    
+
   },
   mounted(){
     //this.loading = true;
-    const api = "https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json";
-    axios.get(api)
-    .then(function (response) {
-    console.log(response.data);
-    response.data.data[0].area = response.data.area;
-  })
-  .catch((err) => {
-    console.log(err);
+  //   axios.get(api).then(function (response) {
+  //   console.log(response.data);
+  //   this.dataCard = response.data.data
+  //   //response.data.data[0].area = response.data.area;
+  // })
+  //.catch((err) => {console.log(err);})
+  axios.get(api).then(response => {
+    this.dataCard = response.data.data
   })
 }
 };
