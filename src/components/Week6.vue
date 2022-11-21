@@ -492,6 +492,7 @@ export default {
   axios.get(api).then(response => {
     this.dataCard = response.data.data
   })
+  .catch((err) => {console.log(err);})
 }
 };
 </script>
